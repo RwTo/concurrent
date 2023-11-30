@@ -65,8 +65,12 @@ public class WaitTest {
 
             queue.offer(product);
             System.out.println(Thread.currentThread().getName()+" 生产产品："+product +" 剩余产品总数："+queue.size());
-            //queue.notify() //随机唤醒一个阻塞线程，使被唤醒的线程进入就绪状态
-            queue.notifyAll();//唤醒对象queue的所有阻塞线程，使被唤醒的线程进入就绪状态
+            /**
+             * queue.notify()
+             * 随机唤醒一个阻塞线程，并使它等待获取该对象的对象锁，参与竞争锁，拿到锁后进入就绪态
+             * 只会唤醒调用notify()和notifyAll()方法之前调用了wait()方法的线程
+             */
+            queue.notifyAll();//唤醒对象queue的所有阻塞线程，并使它们等待获取该对象的对象锁，参与竞争锁
         }
     }
 
