@@ -1,4 +1,4 @@
-package com.rwto.concurrent.basics;
+package com.rwto.concurrent.safety;
 
 /**
  * volatile 关键字

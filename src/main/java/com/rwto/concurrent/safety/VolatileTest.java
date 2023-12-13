@@ -1,4 +1,4 @@
-package com.rwto.concurrent.basics;
+package com.rwto.concurrent.safety;
 
 import lombok.AllArgsConstructor;
 
@@ -11,13 +11,14 @@ import lombok.AllArgsConstructor;
  * synchronized 是java 内置一种原子性的内置锁，也就是监视器锁
  * 此内置锁是排他锁。
  */
+
 /**
  * @author renmw
  * @create 2023/12/13 15:34
  **/
-public class SynchronizedTest {
+public class VolatileTest {
     public static void main(String[] args) {
-        AtomicInteger atomicInteger = new AtomicInteger(0);
+        AtomicVolatileInteger atomicInteger = new AtomicVolatileInteger(0);
         new Thread(()->{
             for (int j = 0; j < 100000; j++) {
                 syncBlock(atomicInteger);
@@ -31,20 +32,26 @@ public class SynchronizedTest {
         }).start();
     }
 
-    /**
-     * 增加synchronized ，同步进行增加
-     * 因为是排他锁，同时也解决了内存可见性的问题，同一时间只有一个线程操作此同步块
-     * synchronized 保证原子性操作，可以用来解决线程安全问题
-     * @param atomicInteger
-     */
-    public synchronized static void syncBlock(AtomicInteger atomicInteger){
+    public static void syncBlock(AtomicVolatileInteger atomicInteger){
         System.out.println(Thread.currentThread()+"i:"+atomicInteger.num);
         atomicInteger.num++;
     }
 
 
 }
+
 @AllArgsConstructor
-class AtomicInteger{
-    public Integer num;
+class AtomicVolatileInteger{
+    /**
+     * 只解决内存可见性问题，不能实现同步
+     * 被声明volatile的字段，直接从主内存中读写，解决可见性问题shi
+     * volatile 不保证 原子性，例如：依赖于初始值进行计算时，原子操作为：读取-计算-写入，使用 volatile 无法解决并发问题
+     */
+    public volatile Integer num;
 }
+
+/**
+ * 什么时候使用volatile 关键字？
+ * 1. 写入变量
+ *
+ * */

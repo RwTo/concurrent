@@ -1,4 +1,4 @@
-package com.rwto.concurrent.basics;
+package com.rwto.concurrent.safety;
 
 import sun.misc.Unsafe;
 
