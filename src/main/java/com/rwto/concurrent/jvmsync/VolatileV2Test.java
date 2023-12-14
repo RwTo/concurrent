@@ -1,4 +1,4 @@
-package com.rwto.concurrent.safety;
+package com.rwto.concurrent.jvmsync;
 
 import lombok.AllArgsConstructor;
 
@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
  * @author renmw
  * @create 2023/12/13 15:34
  **/
-public class VolatileTest {
+public class VolatileV2Test {
     public static void main(String[] args) {
         AtomicVolatileInteger atomicInteger = new AtomicVolatileInteger(0);
         new Thread(()->{

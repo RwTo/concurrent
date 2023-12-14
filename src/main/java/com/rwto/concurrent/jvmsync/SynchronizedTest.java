@@ -1,4 +1,4 @@
-package com.rwto.concurrent.safety;
+package com.rwto.concurrent.jvmsync;
 
 import lombok.AllArgsConstructor;
 
