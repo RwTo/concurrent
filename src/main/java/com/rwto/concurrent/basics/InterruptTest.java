@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * interrupt() 中断线程，仅仅是将中断标志设置为true，并不是直接中断
  * 如果此线程内有使用wait(),sleep(),join()方法挂起线程，则抛出异常InterruptedException
  * isInterrupted() 检测调用线程是否被中断，中断为true,否则为false
- * interrupted()  这是一个静态方法！！获取当前线程的中断标志并重置，检测当前线程是否被中断，中断为true,但是会清掉中断标志，否则为false
+ * interrupted()  这是一个静态方法！！获取《当前线程》的中断标志并重置，检测当前线程是否被中断，中断为true,但是会清掉中断标志，否则为false
  * @author renmw
  * @create 2023/11/30 9:29
  **/
