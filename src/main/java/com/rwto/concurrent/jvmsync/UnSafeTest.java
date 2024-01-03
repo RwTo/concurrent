@@ -27,7 +27,7 @@ public class UnSafeTest {
             Field field = Unsafe.class.getDeclaredField("theUnsafe");
 
             field.setAccessible(true);
-
+            //theUnsafe 是静态字段，field.get()传入任何值都可以获取
             unsafe = (Unsafe) field.get(null);
 
             //／获取state 变量在类TestUnSafe 中的偏移值
