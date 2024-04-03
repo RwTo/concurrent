@@ -30,7 +30,7 @@ public class OptimisticLockTest {
         /**
          * 从数据库中查询出相应数据 (含有当前版本号字段)
          * */
-        //Entry entry = query("select * from tb_entry where id = #{id} for update ",id);
+        //Entry entry = query("select * from tb_entry where id = #{id} ",id);
 
         /**
          * 在内存中计算，修改entry 对象
@@ -58,7 +58,7 @@ public class OptimisticLockTest {
             /**
              * 从数据库中查询出相应数据 (含有当前版本号字段)
              * */
-            //Entry entry = query("select * from tb_entry where id = #{id} for update ",id);
+            //Entry entry = query("select * from tb_entry where id = #{id} ",id);
 
             /**
              * 在内存中计算，修改entry 对象
